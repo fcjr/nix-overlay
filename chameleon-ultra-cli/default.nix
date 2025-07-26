@@ -22,7 +22,7 @@ python3.pkgs.buildPythonApplication rec {
     cmake
   ];
   
-  propagatedBuildInputs = with python3.pkgs; [
+  dependencies = with python3.pkgs; [
     pyserial
     colorama
     prompt-toolkit
@@ -61,7 +61,7 @@ python3.pkgs.buildPythonApplication rec {
       --prefix PATH : "$out/lib/chameleon-ultra"
     runHook postInstall
   '';
-  
+
   meta = with lib; {
     description = "Command-line tool for ChameleonUltra RFID/NFC research device";
     longDescription = ''
