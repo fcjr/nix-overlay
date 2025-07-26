@@ -58,7 +58,8 @@ python3.pkgs.buildPythonApplication rec {
     makeWrapper ${python3}/bin/python $out/bin/chameleon-ultra-cli \
       --add-flags "$out/lib/chameleon-ultra/chameleon_cli_main.py" \
       --chdir "$out/lib/chameleon-ultra" \
-      --prefix PATH : "$out/lib/chameleon-ultra"
+      --prefix PATH : "$out/lib/chameleon-ultra" \
+      --prefix PYTHONPATH : "${python3.pkgs.makePythonPath dependencies}"
     runHook postInstall
   '';
 
